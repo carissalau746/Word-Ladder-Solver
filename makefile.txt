@@ -1,0 +1,20 @@
+build:
+	rm -f app.exe
+	gcc main.c -o app.exe
+
+run:
+	./app.exe
+
+run_example:
+	./app.exe < example.txt
+
+run_impossible:
+	./app.exe < impossible.txt
+
+run_random:
+	./app.exe < random.txt
+
+valgrind:
+	rm -f app.exe
+	gcc -g main.c -o app.exe
+	valgrind -s --tool=memcheck --leak-check=yes --track-origins=yes ./app.exe
